@@ -1,27 +1,24 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from 'vscode'
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+const EXTENSION_ID = 'monorepo-terminal-starter'
+
 export function activate(context: vscode.ExtensionContext) {
+  const helloWorldCmdDisposable = vscode.commands.registerCommand(
+    `${EXTENSION_ID}.helloWorld`,
+    () => {
+      vscode.window.showInformationMessage('YO')
+    }
+  )
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "monorepo-terminal-starter" is now active!');
+  const startCmdDisposable = vscode.commands.registerCommand(`${EXTENSION_ID}.start`, () => {
+    vscode.window.createTerminal({
+      shellPath: '/usr/bin/fish',
+      name: 'terminal',
+    })
+    vscode.window.showInformationMessage('Terminal Started')
+  })
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('monorepo-terminal-starter.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from monorepo-terminal-starter!');
-	});
-
-	context.subscriptions.push(disposable);
+  context.subscriptions.push(helloWorldCmdDisposable)
 }
 
-// this method is called when your extension is deactivated
 export function deactivate() {}
