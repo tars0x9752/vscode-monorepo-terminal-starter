@@ -10,18 +10,13 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:monorepo-terminal-starter.helloWorld",
-		"onCommand:monorepo-terminal-starter.start"
+		"onCommand:monorepo-terminal-starter.openTerminals"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "monorepo-terminal-starter.helloWorld",
-				"title": "Hello World"
-			},
-			{
-				"command": "monorepo-terminal-starter.start",
+				"command": "monorepo-terminal-starter.openTerminals",
 				"title": "Start Terminal"
 			}
 		]
