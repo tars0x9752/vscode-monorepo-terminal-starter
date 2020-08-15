@@ -36,9 +36,38 @@ const openTerminalsCmd = async () => {
   createTerminals(packageFolders)
 }
 
+const openWorkspacesCmd = async () => {
+  const { addWorkspaces, getPackageFolders } = fs()
+
+  const rootUri = fs().getRootUri()
+
+  if (!rootUri) {
+    console.log('no workspace')
+    return
+  }
+
+  const packagesRoot = (
+    await vscode.window.showOpenDialog({
+      canSelectFiles: false,
+      canSelectFolders: true,
+      defaultUri: rootUri,
+      canSelectMany: false,
+    })
+  )?.shift()
+
+  if (packagesRoot === undefined) {
+    return
+  }
+
+  const packageFolders = await getPackageFolders(packagesRoot)
+
+  addWorkspaces(packageFolders)
+}
+
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
-    vscode.commands.registerCommand(`${EXTENSION_ID}.openTerminals`, openTerminalsCmd)
+    vscode.commands.registerCommand(`${EXTENSION_ID}.openTerminals`, openTerminalsCmd),
+    vscode.commands.registerCommand(`${EXTENSION_ID}.openWorkspaces`, openWorkspacesCmd)
   )
 }
 

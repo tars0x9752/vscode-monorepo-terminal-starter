@@ -10,14 +10,19 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:monorepo-terminal-starter.openTerminals"
+		"onCommand:monorepo-terminal-starter.openTerminals",
+		"onCommand:monorepo-terminal-starter.openWorkspaces"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
 				"command": "monorepo-terminal-starter.openTerminals",
-				"title": "Start Terminal"
+				"title": "Open Terminals"
+			},
+			{
+				"command": "monorepo-terminal-starter.openWorkspaces",
+				"title": "Open Workspaces"
 			}
 		]
 	},
