@@ -10,12 +10,6 @@ const startCmd = async () => {
     return
   }
 
-  vscode.window.createTerminal({
-    name: 'terminal',
-  })
-
-  vscode.window.showInformationMessage('Terminal Started')
-
   const packagesRoot = await vscode.window.showOpenDialog({
     canSelectFiles: false,
     canSelectFolders: true,
