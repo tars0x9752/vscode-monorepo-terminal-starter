@@ -1,6 +1,33 @@
 import * as vscode from 'vscode'
+import { fs } from './fs'
 
 const EXTENSION_ID = 'monorepo-terminal-starter'
+
+const startCmd = async () => {
+  const rootUri = fs().getRootUri()
+
+  if (!rootUri) {
+    return
+  }
+
+  vscode.window.createTerminal({
+    name: 'terminal',
+  })
+
+  vscode.window.showInformationMessage('Terminal Started')
+
+  const packagesRoot = await vscode.window.showOpenDialog({
+    canSelectFiles: false,
+    canSelectFolders: true,
+    defaultUri: rootUri,
+  })
+
+  if (packagesRoot === undefined) {
+    return
+  }
+
+  console.log(await fs().getPackageFolders(packagesRoot[0]))
+}
 
 export function activate(context: vscode.ExtensionContext) {
   const helloWorldCmdDisposable = vscode.commands.registerCommand(
@@ -10,15 +37,10 @@ export function activate(context: vscode.ExtensionContext) {
     }
   )
 
-  const startCmdDisposable = vscode.commands.registerCommand(`${EXTENSION_ID}.start`, () => {
-    vscode.window.createTerminal({
-      shellPath: '/usr/bin/fish',
-      name: 'terminal',
-    })
-    vscode.window.showInformationMessage('Terminal Started')
-  })
+  const startCmdDisposable = vscode.commands.registerCommand(`${EXTENSION_ID}.start`, startCmd)
 
   context.subscriptions.push(helloWorldCmdDisposable)
+  context.subscriptions.push(startCmdDisposable)
 }
 
 export function deactivate() {}
