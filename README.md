@@ -10,6 +10,10 @@ monorepo の各 packages/modules 毎にターミナルを開きます。
 - `monorepo-terminal-starter: Open Workspaces`
 - `monorepo-terminal-starter: Bootstrap Terminals`
 
+## Demo
+
+![demo](https://user-images.githubusercontent.com/46079709/90333051-65735a80-dffd-11ea-9fb8-8a7ca6824a6d.gif)
+
 ## Usage
 
 ### `Open Terminals` コマンド
