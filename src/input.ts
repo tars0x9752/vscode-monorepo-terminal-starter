@@ -6,7 +6,7 @@ export const showPackageRootInput = async () => {
   const rootUri = getRootUri()
 
   if (!rootUri) {
-    console.log('no workspace')
+    console.log('no rootUri')
     return
   }
 
