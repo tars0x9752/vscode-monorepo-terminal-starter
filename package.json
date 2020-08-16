@@ -2,7 +2,7 @@
   "name": "monorepo-terminal-starter",
   "displayName": "Monorepo Terminal Starter",
   "description": "open terminals for each monorepo packages",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "publisher": "tars0x9752",
   "engines": {
     "vscode": "^1.48.0"
