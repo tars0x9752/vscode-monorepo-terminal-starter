@@ -2,19 +2,21 @@ import * as vscode from 'vscode'
 import { fs } from './fs'
 import { terminal } from './terminal'
 import { showPackageRootInput } from './input'
-const { addWorkspaces } = fs()
+const { addWorkspaces, getRootUri } = fs()
 const { createTerminals, createTerminal } = terminal()
 
 export const openTerminalsCmd = async () => {
   const inputs = await showPackageRootInput()
 
-  if (inputs === undefined) {
+  const rootUri = getRootUri()
+
+  if (inputs === undefined || !rootUri) {
     return
   }
 
-  const { packagesRoot, packageFolders } = inputs
+  const { packageFolders } = inputs
 
-  createTerminal(packagesRoot, 'root')
+  createTerminal(rootUri, 'root')
 
   createTerminals(packageFolders)
 }
