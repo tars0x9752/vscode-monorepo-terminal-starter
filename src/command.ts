@@ -30,3 +30,13 @@ export const openWorkspacesCmd = async () => {
 
   addWorkspaces(packageFolders)
 }
+
+export const bootstrapTerminalsCmd = async () => {
+  const { workspaceFolders } = vscode.workspace
+
+  if (workspaceFolders === undefined) {
+    return
+  }
+
+  createTerminals(workspaceFolders.map(v => v.uri))
+}
