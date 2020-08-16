@@ -1,8 +1,9 @@
 {
   "name": "monorepo-terminal-starter",
-  "displayName": "monorepo-terminal-starter",
-  "description": "",
-  "version": "0.0.1",
+  "displayName": "Monorepo Terminal Starter",
+  "description": "open terminals for each monorepo packages",
+	"version": "1.0.0",
+	"publisher": "tars0x9752",
   "engines": {
     "vscode": "^1.48.0"
   },
@@ -55,5 +56,10 @@
     "prettier": "^2.0.5",
     "typescript": "^3.8.3",
     "vscode-test": "^1.3.0"
-  }
+	},
+	"repository": {
+    "type": "git",
+    "url": "https://github.com/tars0x9752/vscode-monorepo-terminal-starter"
+  },
+  "license": "SEE LICENSE IN LICENSE"
 }

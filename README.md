@@ -1,65 +1,52 @@
-# monorepo-terminal-starter README
+# Monorepo Terminal Starter
 
-This is the README for your extension "monorepo-terminal-starter". After writing up a brief description, we recommend including the following sections.
+monorepo の各 packages/modules 毎にターミナルを開きます。
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+下記のコマンドをコマンドパレットに追加します。
 
-For example if there is an image subfolder under your extension project workspace:
+- `monorepo-terminal-starter: Open Terminals`
+- `monorepo-terminal-starter: Open Workspaces`
+- `monorepo-terminal-starter: Bootstrap Terminals`
 
-\!\[feature X\]\(images/feature-x.png\)
+## Usage
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+### `Open Terminals` コマンド
+
+指定したフォルダの配下にあるものを `packages/modules` とみなしてターミナルを起動します。
+
+> Multi-root Workspaces を使わない場合にこのコマンドを使うことを想定しています。
+
+### `Open Workspaces` コマンド
+
+指定したフォルダの配下にあるものを `packages/modules` とみなして Workspace に追加します。
+
+> VSCode の Reload Window を伴います。
+
+### `Bootstrap Terminals` コマンド
+
+現在開いている Workspace 毎にターミナルを起動します。
+
+> すでに monorepo の各 `packages/modules` を Multi-root Workspaces として開いている場合にこのコマンドを使うことを想定しています。
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- Linux または macOS
+- Windows のファイルシステムはサポートしていません。
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+起動するターミナルは `"terminal.integrated.shell.*"` などの VSCode 標準のターミナル設定に従います。
 
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
+この拡張機能のためだけの特別な設定はありません。
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
 ### 1.0.0
 
-Initial release of ...
+Initial release
 
-### 1.0.1
+## License
 
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+[MIT](LICENSE)
