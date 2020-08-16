@@ -41,11 +41,9 @@ monorepo の各 packages/modules 毎にターミナルを開きます。
 
 この拡張機能のためだけの特別な設定はありません。
 
-## Release Notes
+## Changelog
 
-### 1.0.0
-
-Initial release
+See [CHANGELOG](CHANGELOG.md) for more information.
 
 ## License
 
